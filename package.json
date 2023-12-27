@@ -3,6 +3,17 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/three-framework.umd.cjs",
+  "module": "./dist/three-framework.js",
+  "exports": {
+    ".": {
+      "import": "./dist/three-framework.js",
+      "require": "./dist/three-framework.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

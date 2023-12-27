@@ -1,7 +1,7 @@
+import "./style.css"
 import { Vector3 } from "three"
-import "../style.css"
-import { App } from "./Core/App"
-import { createCube } from "./Utils/PrimitiveMeshes"
+import { App } from "./src/Entry"
+import { createCube } from "./src/Entry"
 
 let app = new App()
 
