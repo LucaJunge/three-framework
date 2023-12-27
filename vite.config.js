@@ -8,5 +8,13 @@ export default defineConfig({
       name: "ThreeFramework",
       fileName: "three-framework",
     },
+    rollupOptions: {
+      external: ["three"],
+      output: {
+        globals: {
+          three: "three",
+        },
+      },
+    },
   },
 })
