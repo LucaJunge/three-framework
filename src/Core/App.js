@@ -7,10 +7,18 @@ import {
   WebGLRenderer,
 } from "three"
 import { WebXRHandler } from "./WebXR"
+import { Loader } from "./Loader"
+
+let instance = null
 
 export class App extends EventDispatcher {
   constructor() {
     super()
+
+    if (instance) {
+      return instance
+    }
+    instance = this
 
     this.canvas = document.querySelector("#app")
     this.canvas.classList.add("app")
@@ -26,7 +34,10 @@ export class App extends EventDispatcher {
     this.renderer.pixelRatio = Math.max(window.devicePixelRatio, 2)
     this.renderer.xr.enabled = true
     this.renderer.setClearColor(new Color(0.0, 0.0, 0.0))
+
+    // Components
     this.xr = new WebXRHandler()
+    this.loader = new Loader()
 
     /* Default Lighting */
     let ambientLight = new AmbientLight(0xffffff, 1)
